@@ -1,0 +1,33 @@
+<properties>
+    <parsers>
+        <!-- Exclude OCR parser to avoid text extraction from images -->
+        <parser class="org.apache.tika.parser.DefaultParser">
+            <parser-exclude class="org.apache.tika.parser.pkg.PackageParser"/>
+            <parser-exclude class="org.apache.tika.parser.ocr.TesseractOCRParser"/>
+        </parser>
+
+        <!-- PDF Parser: Disable image extraction -->
+        <parser class="org.apache.tika.parser.pdf.PDFParser">
+            <params>
+                <param name="extractInlineImages" type="bool">false</param>
+                <param name="extractUniqueInlineImagesOnly" type="bool">false</param>
+            </params>
+        </parser>
+
+        <!-- Microsoft Office Parser: Exclude shapes and headers/footers -->
+        <parser class="org.apache.tika.parser.microsoft.OfficeParser">
+            <params>
+                <param name="extractInlineImages" type="bool">false</param>
+                <param name="includeShapeBasedContent" type="bool">false</param>
+                <param name="includeHeadersAndFooters" type="bool">false</param>
+            </params>
+        </parser>
+
+        <!-- HTML Parser: Ignore scripts and styles -->
+        <parser class="org.apache.tika.parser.html.HtmlParser">
+            <params>
+                <param name="extractScripts" type="bool">false</param>
+            </params>
+        </parser>
+    </parsers>
+</properties>

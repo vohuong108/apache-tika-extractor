@@ -6,6 +6,7 @@
 //import org.apache.poi.hwpf.HWPFDocument;
 //import org.apache.poi.hwpf.extractor.WordExtractor;
 //import org.apache.poi.ss.usermodel.Workbook;
+//import org.apache.poi.util.IOUtils;
 //import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 //import org.apache.poi.xwpf.usermodel.XWPFDocument;
 //import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
@@ -52,6 +53,8 @@
 //    }
 //
 //    private static String extractDocx(File file) throws Exception {
+//        IOUtils.setByteArrayMaxOverride(Integer.MAX_VALUE);
+//
 //        try (FileInputStream fis = new FileInputStream(file);
 //             XWPFDocument docx = new XWPFDocument(fis)) {
 //            XWPFWordExtractor extractor = new XWPFWordExtractor(docx);
@@ -138,13 +141,13 @@
 //    }
 //
 //    public static void main(String[] args) {
-//        File file = new File("F:\\Laurentiu Spilca - Spring Security in Action, Second Edition-Manning (2024).pdf");
+//        File file = new File("C:\\Users\\Admin\\Documents\\korean\\vanNgheKorSub.docx");
 //
 //        try {
 //            String text = extractText(file);
 //            System.out.println("Extracted text:\n" + text);
 //
-//            BufferedWriter writer = new BufferedWriter(new FileWriter("F:\\outputkr3.txt"));
+//            BufferedWriter writer = new BufferedWriter(new FileWriter("F:\\Vo Huong\\JavaApp\\ExtractText\\src\\main\\resources\\output\\output2.txt"));
 //            writer.write(text);
 //            writer.close();
 //        } catch (Exception e) {
